@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejob-deployment
+  labels:
+    app: nodejob
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodejob
+  template:
+    metadata:
+      labels:
+        app: nodejob
+    spec:
+      containers:
+      - name: nodejob
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 3000
