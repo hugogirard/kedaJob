@@ -21,4 +21,12 @@ module acr 'modules/registry/acr.bicep' = {
   }
 }
 
+module aks 'modules/aks/aks.bicep' = {
+  scope: resourceGroup(rg.name)
+  name: 'aks'
+  params: {
+    location: location
+    suffix: suffix
+  }
+}
 
